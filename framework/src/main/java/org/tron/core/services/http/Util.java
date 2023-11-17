@@ -144,6 +144,17 @@ public class Util {
     return transactions;
   }
 
+  public static String printTransactionsList(List<TransactionCapsule> transactions,
+      boolean selfType) {
+    JSONObject jsonObject = new JSONObject();
+    JSONArray jsonArray = new JSONArray();
+    transactions.stream()
+        .forEach(transaction -> jsonArray.add(printTransactionToJSON(transaction.getInstance(),
+        selfType)));
+    jsonObject.put("transactions", jsonArray);
+    return jsonObject.toJSONString();
+  }
+
   public static String printTransaction(Transaction transaction, boolean selfType) {
     return printTransactionToJSON(transaction, selfType).toJSONString();
   }

@@ -2338,6 +2338,20 @@ public class Manager {
     return transactionCapsule.get();
   }
 
+  public List<TransactionCapsule> getTxsFromPending() {
+    // AtomicReference<TransactionCapsule> transactionCapsule = new AtomicReference<>();
+    List<TransactionCapsule> result = Collections.synchronizedList(Lists.newArrayList());
+    pendingTransactions.forEach(tx -> {
+      // transactionCapsule.set(tx);
+      result.add(tx);
+    });
+    rePushTransactions.forEach(tx -> {
+      // transactionCapsule.set(tx);
+      result.add(tx);
+    });
+    return result;
+  }
+
   public Collection<String> getTxListFromPending() {
     Set<String> result = new HashSet<>();
     pendingTransactions.forEach(tx -> {
