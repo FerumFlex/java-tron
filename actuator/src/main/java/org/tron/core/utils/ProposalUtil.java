@@ -358,10 +358,10 @@ public class ProposalUtil {
           throw new ContractValidateException(
               "Bad chain parameter id [ALLOW_MARKET_TRANSACTION]");
         }
-        if (value != 1) {
-          throw new ContractValidateException(
-              "This value[ALLOW_MARKET_TRANSACTION] is only allowed to be 1");
-        }
+        // if (value != 1) {
+        //   throw new ContractValidateException(
+        //       "This value[ALLOW_MARKET_TRANSACTION] is only allowed to be 1");
+        // }
         break;
       }
       case MARKET_SELL_FEE: {
